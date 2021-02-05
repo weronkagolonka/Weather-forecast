@@ -18,11 +18,9 @@ export const clearSuggestions = () => {
 }
 
 const renderSuggestion = (place) => {
-    console.log("render");
-
     const markup = `
     <li>
-        <a class="suggestion_link" href="lat=${place.latitude}&lon=${place.longitude}">
+        <a class="suggestion_link" href="#lat=${place.latitude}&lon=${place.longitude}">
             <div class="suggestion">
                 <p class="name">${place.name}</p>
                 <p class=additional_info>${place.region}, ${place.country}</p>
