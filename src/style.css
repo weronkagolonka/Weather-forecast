@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-image: linear-gradient(to right bottom, #B5D3FF, #FFFFFF);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+}
+
+.main_content {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.title_container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.title {
+    font-size: 2.5rem;
+}
+
+.search_suggest {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    z-index: 10;
+}
+
+.search_bar_container {
+    width: 100%;
+    z-index: 9;
+}
+
+.search {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    padding: 1rem;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+    border: 0px solid #1479de;
+}
+
+
+.search_bar {
+    border: 0px;
+    outline: none;
+    width: 100%;
+    height: inherit;
+    font-size: 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.icon {
+    align-self: center;
+    color: #1479de;
+    padding-right: 1rem;
+}
+
+::placeholder {
+    font-family: 'Open Sans', sans-serif;
+    color: #64a1de;
+}
+
+.suggestions_container {
+    display: none;
+    position: absolute;
+    top: 5rem;
+    width: 100%;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0.7rem 0.5rem 0.7rem rgba(41, 109, 158, 0.2);
+    z-index: 2;
+}
+
+.suggestions_list {
+    margin: 0.6rem;
+    list-style-type: none;
+}
+
+.suggestion_link {
+    text-decoration: none;
+}
+
+.suggestion_link:hover {
+    text-decoration: underline;
+    text-decoration-color: black;
+}
+
+.suggestion {
+    display: flex;
+    flex-direction: column;
+    padding: 0.7rem;
+    background-color: #FFFFFF;
+    width: 100%;
+    border-bottom: 1px solid #64a1de;
+    z-index: 9999;
+}
+
+.suggestion.last {
+    border-bottom: 0px;
+}
+
+.name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: black;
+    z-index: 999;
+}
+
+.additional_info {
+    font-size: 1rem;
+    color: black;
+    text-decoration: none;
+}
+
+.last_suggestion {
+    padding: 1rem;
+    background-color: #FFFFFF;
+    width: 100%;
+}
+
+.results_container {
+    position: relative;
+    padding-top: 3rem;
+    z-index: 1;
+}
+
+.results_list {
+    list-style-type: none;
+}
+
+.result {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #FFFFFF;
+    box-shadow: 0.7rem 0.5rem 0.7rem rgba(41, 109, 158, 0.1);
+    border-radius: 1rem;
+}
