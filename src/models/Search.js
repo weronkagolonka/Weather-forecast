@@ -9,7 +9,7 @@ export default class Search {
     async getResult() {
 
         try {
-            const result = await axios(`http://api.positionstack.com/v1/forward?access_key=${apiKey}&query=${this.query}`);
+            const result = await axios(`https://api.positionstack.com/v1/forward?access_key=${apiKey}&query=${this.query}`);
 
             this.places = result.data;
 
