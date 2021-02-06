@@ -15,7 +15,7 @@ export default class Search {
 
         } catch (error) {
             alert("Something went wrong...");
-
+            console.log(error);
         }
     }
 }   

@@ -1,10 +1,5 @@
 import { elements } from './base';
 
-var input = elements.searchInput;
-
-export const getInput = () => {
-    input.addEventListener('input', () => console.log(input.value));
-}
 
 
 export const clearInput = () => {
@@ -29,7 +24,9 @@ const renderSuggestion = (place) => {
     </li>
     `;
 
-    elements.suggestionList.insertAdjacentHTML('beforeend', markup);
+    if (place != undefined) {
+        elements.suggestionList.insertAdjacentHTML('beforeend', markup);
+    }
 }
 
 export const renderSuggestionList = (search) => {

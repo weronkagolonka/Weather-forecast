@@ -9,10 +9,10 @@ export default class Location {
         try {
             const result = await axios(`https://api.met.no/weatherapi/locationforecast/2.0/compact?${this.latlng}`);
 
-            this.forecast = result.data;
+            this.forecast = result.data.properties;
 
-            console.log(this.forecast);
         } catch (error) {
+            alert("Something went wrong...");
             console.log(error);
         }
     }
