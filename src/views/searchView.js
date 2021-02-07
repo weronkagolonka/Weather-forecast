@@ -1,6 +1,6 @@
 import { elements } from './base';
 
-
+//functions for rendering the data fetched in the Search object
 
 export const clearInput = () => {
     elements.searchBar.setAttribute("style", "border: none");
@@ -30,14 +30,14 @@ const renderSuggestion = (place) => {
 }
 
 export const renderSuggestionList = (search) => {
-    //const lastIndex = 5;
+    //show the container that contains the list of suggestions
     elements.suggestionContainer.setAttribute("style", "display:block");
 
+    //limit to max 5 search results
     if (search.length > 5) {
         search.slice(0, 5).forEach(renderSuggestion);
     } else {
         search.forEach(renderSuggestion);
-
     }
 
 }

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { apiKey } from '../config';
 
+//data model for fetching places with a given query. Extracted coordinates will be used for fetching the weather forecast
 export default class Search {
     constructor(query) {
         this.query = query;

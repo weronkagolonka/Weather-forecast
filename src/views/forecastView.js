@@ -1,5 +1,9 @@
 import { elements } from './base';
 
+//functions for rendering the data fetched in the Location object
+
+
+//default state data
 const averageForecast = {
     date: Date.now(),
     temperature: 0,
@@ -34,6 +38,7 @@ const months = [
     'December'
 ];
 
+//reset the state to default data
 const resetAverage = () => {
     averageForecast.date = Date.now();
     averageForecast.temperature = 0;
@@ -81,37 +86,17 @@ const renderResult = () => {
     elements.resultsList.insertAdjacentHTML('beforeend', markup);
 }
 
+//data is being provided in timeseries every hour. 
+//I decided to calculate the average for the whole day instead of showing extremely detailed overview
 export const calculateAverage = (day, date) => {
-    //temp
-    //wind
-    //pressure
 
-    /*
-    0:
-    data:
-        instant:
-            details:
-                air_pressure_at_sea_level: 1009.7
-                air_temperature: -14.3
-                cloud_area_fraction: 83.6
-                relative_humidity: 67.6
-                wind_from_direction: 295.1
-                wind_speed: 9.2
-    __proto__: Object
-    __proto__: Object
-    next_1_hours: {summary: {…}, details: {…}}
-    next_6_hours: {summary: {…}, details: {…}}
-    next_12_hours: {summary: {…}}
-    __proto__: Object
-    time: "2021-02-05T19:00:00Z"
-    __proto__: Object
-    */
     var count = 0;
 
     averageForecast.date = date;
 
     let symbol;
 
+    //find the precipitation symbol code in order to assign proper icon. Not all the instances have the summary for 1, 6 and 12 hours
     if (day[0].data.hasOwnProperty('next_12_hours')) {
         symbol = day[0].data.next_12_hours.summary.symbol_code;
     } else if (day[0].data.hasOwnProperty('next_6_hours')) {
@@ -122,6 +107,7 @@ export const calculateAverage = (day, date) => {
 
     averageForecast.icon = symbol;
 
+    //sum up the data for every instance throughout the day
     day.forEach((e) => {
         averageForecast.temperature += e.data.instant.details.air_temperature;
         averageForecast.wind += e.data.instant.details.wind_speed;
@@ -131,7 +117,7 @@ export const calculateAverage = (day, date) => {
         count++;
     });
 
-
+    //calculate the average values
     averageForecast.temperature = (averageForecast.temperature / count).toFixed(2);
     averageForecast.wind = (averageForecast.wind / count).toFixed(2);
     averageForecast.windDirection = (averageForecast.windDirection / count).toFixed(2);
@@ -139,5 +125,6 @@ export const calculateAverage = (day, date) => {
 
     renderResult();
 
+    //reset the state before rendering another day
     resetAverage();
 }

@@ -1,5 +1,8 @@
 import axios from "axios";
 
+
+//data model for weather forecast
+//fetch information from MET API with coordinates provided to the constructor
 export default class Location {
     constructor(latlng) {
         this.latlng = latlng;

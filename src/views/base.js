@@ -1,4 +1,4 @@
-//all elements from the DOM
+//all elements from the DOM in one place
 
 export const elements = {
     title: document.querySelector('.title'),
